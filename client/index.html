@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Development Environment</title>
+  <link rel="stylesheet" href="css/index.css" type="text/css" />
+</head>
+
+<body>
+  <!--<div id="dialWindow">-->
+  <!--  <h1>Project Setting</h1>-->
+  <!--  <div class="tab">-->
+  <!--    <a onclick="openTab(event, 'general')">General</a>-->
+  <!--    <a onclick="openTab(event, 'team')">Team</a>-->
+  <!--  </div>-->
+
+  <!--  <div id="general" class="tabcontent">-->
+  <!--    <h3>General</h3>-->
+  <!--    <label>Назва Проекту<input type="text" name="nameProj"/></label>-->
+  <!--    <label> Опис Проекту<textarea></textarea></label>-->
+  <!--  </div>-->
+
+  <!--  <div id="team" class="tabcontent">-->
+  <!--    <h3>Team</h3>-->
+
+  <!--<select name="allUser" id="allUser"></select>-->
+  <!--<select name="selectedUser" id="selectedUser"></select>-->
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+  <ul id="myUL">
+    <li class="lists" onclick="myFunction()"><a>Wilfred Weber, Future Creative Planner</a></li>
+    <li class="lists" onclick="myFunction()"><a>Nash Thompson, District Web Director</a></li>
+    <li class="lists" onclick="myFunction()"><a>Lelah Herman, Forward Metrics Representative</a></li>
+    <li class="lists" onclick="myFunction()"><a>Mike Hammes, Principal Interactions Officer</a></li>
+    <li class="lists" onclick="myFunction()"><a>Elias Leuschke, Customer Functionality</a></li>
+    <li class="lists" onclick="myFunction()"><a>Wilfred Weber, Future Creative Planner</a></li>
+    <li class="lists" onclick="myFunction()"><a>Nash Thompson, District Web Director</a></li>
+    <li class="lists" onclick="myFunction()"><a>Lelah Herman, Forward Metrics Representative</a></li>
+    <li class="lists" onclick="myFunction()"><a>Mike Hammes, Principal Interactions Officer</a></li>
+    <li class="lists" onclick="myFunction()"><a>Elias Leuschke, Customer Functionality</a></li>
+  </ul>
+  <ul id="yourUL">
+  </ul>
+  <!--  </div>-->
+  <!--</div>-->
+
+
+
+  <script>
+    function myFunction() {
+      let filter, li, a, i;
+      filter = document.getElementById("myInput").value.toUpperCase();
+      li = document.getElementById("myUL").getElementsByTagName("li");
+      for (i = 0; i < li.length; i++) {
+        li[i].onclick = function() {
+          let mkOpt = document.createElement("li");
+          mkOpt.appendChild(document.createTextNode(this.innerText));
+          document.getElementById("yourUL").appendChild(mkOpt);
+        }
+        if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        }
+        else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+
+    // function openTab(evt, tabName) {
+    //   let i, tabcontent;
+    //   tabcontent = document.getElementsByClassName("tabcontent");
+    //   for (i = 0; i < tabcontent.length; i++) {
+    //     tabcontent[i].style.display = "none";
+    //   }
+    //   document.getElementById(tabName).style.display = "block";
+    //   evt.currentTarget.className += " active";
+    // }
+  </script>
+
+</body>
+
+</html>
